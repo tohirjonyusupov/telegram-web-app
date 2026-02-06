@@ -67,6 +67,11 @@ body {
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle button:hover {
+  background: var(--border);
 }
 .actions button {
   padding: 5px 7px;
@@ -74,6 +79,11 @@ body {
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
+  cursor: pointer;
+}
+
+.actions button:hover:not(:disabled) {
+  background: var(--border);
 }
 .actions button:disabled {
   opacity: 0.5;
