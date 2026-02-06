@@ -1,13 +1,36 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f7f7f8;
+  --text: #1b1b1f;
+  --card: #ffffff;
+  --border: #dcdcdc;
+  --muted: #6a6a6a;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0e0f12;
+  --text: #f2f2f3;
+  --card: #1b1d24;
+  --border: #2a2d36;
+  --muted: #b3b3b3;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
 .wrap {
   width: 420px;
   margin: 0 auto;
   text-align: center;
   font-family: system-ui;
-  padding: 0 12px;
+  padding: 16px 12px 24px;
 }
 .user {
   margin: 8px 0 10px;
-  opacity: 0.85;
+  color: var(--muted);
 }
 .status {
   margin: 10px 0 14px;
@@ -22,7 +45,9 @@
   height: 110px;
   font-size: 52px;
   border-radius: 14px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
 }
 .actions {
   display: flex;
@@ -31,10 +56,24 @@
   margin-top: 14px;
   flex-wrap: wrap;
 }
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.theme-toggle button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+}
 .actions button {
   padding: 5px 7px;
   border-radius: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
 }
 .actions button:disabled {
   opacity: 0.5;

@@ -50,6 +50,14 @@ function calcWinner(board: Cell[]): "X" | "O" | null {
 export default function App() {
   const [board, setBoard] = useState<Cell[]>(Array(9).fill(null));
   const [turn, setTurn] = useState<"X" | "O">("X");
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window !== "undefined" && window.matchMedia) {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    return "light";
+  });
 
   const winner = useMemo(() => calcWinner(board), [board]);
   const isDraw = useMemo(() => !winner && board.every(Boolean), [winner, board]);
@@ -62,6 +70,10 @@ export default function App() {
       tg.expand();
     }
   }, [tg]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   const playerName = useMemo(() => {
     const u = tg?.initDataUnsafe?.user;
@@ -103,6 +115,12 @@ export default function App() {
   return (
     <div className="wrap">
       <h2>XO (Telegram Web App)</h2>
+
+      <div className="theme-toggle">
+        <button onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}>
+          {theme === "dark" ? "Light mode" : "Dark mode"}
+        </button>
+      </div>
 
       {playerName && <div className="user">User: <b>{playerName}</b></div>}
 
