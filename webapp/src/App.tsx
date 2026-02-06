@@ -114,7 +114,7 @@ export default function App() {
 
   return (
     <div className="wrap">
-      <h2>XO (Telegram Web App)</h2>
+      <h1>XO (Telegram Web App)</h1>
 
       <div className="theme-toggle">
         <button onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}>
