@@ -83,7 +83,7 @@ body {
 }
 
 .theme-toggle button:hover {
-  background: var(--border);
+  opacity: 0.8;
 }
 .actions button {
   padding: 10px 15px;
@@ -95,7 +95,7 @@ body {
 }
 
 .actions button:hover:not(:disabled) {
-  background: var(--border);
+  opacity: 0.8;
 }
 .actions button:disabled {
   opacity: 0.5;
