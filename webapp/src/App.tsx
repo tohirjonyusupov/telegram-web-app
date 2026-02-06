@@ -124,7 +124,7 @@ export default function App() {
 
       {playerName && <div className="user">User: <b>{playerName}</b></div>}
 
-      <div className="status">
+      <div className={`status ${winner ? "status--winner" : ""}`}>
         {winner && <b>G‘olib: {winner}</b>}
         {!winner && !isDraw && (
           <span>
